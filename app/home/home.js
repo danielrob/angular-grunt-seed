@@ -7,6 +7,6 @@
     $routeProvider.when('/', {
       templateUrl: 'home/home.html'
     });
-  }])
+  }]);
 
 }());

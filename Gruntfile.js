@@ -8,6 +8,7 @@
 
 
 module.exports = function(grunt) {
+  "use strict";
   grunt.initConfig({
     // Watch: Kick off build workflow whenever project files change. 
     watch: {
@@ -42,7 +43,8 @@ module.exports = function(grunt) {
     jshint: {  
       files: {
         src: ['Gruntfile.js', 'app/**/*.js', '!app/bower_components/**']
-      }
+      },
+      options: browserLintOptions(),
     },
     // SASS: compile in place: *.scss -> *.css
     sass: {
@@ -72,4 +74,36 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-newer');
   grunt.registerTask('default',['connect','watch']);
+
+
+  // Source: letscodejavascript.com Lab #1
+  // See http://jshint.com/docs/options/
+  function globalLintOptions() {
+    return {
+      bitwise: true,
+      curly: false,
+      eqeqeq: true,
+      forin: true,
+      immed: true,
+      latedef: false,
+      newcap: true,
+      noarg: true,
+      noempty: true,
+      nonew: true,
+      regexp: true,
+      undef: true,
+      strict: true,
+      trailing: true,
+      globals: {
+        "angular" : false,
+        "module" : false,
+      }
+    };
+  }
+
+  function browserLintOptions(){
+    var options = globalLintOptions();
+    options.browser = true;
+    return options;
+  }
 };
