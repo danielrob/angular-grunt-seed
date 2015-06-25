@@ -1,3 +1,6 @@
+(function () {
+"use strict";
+
 var app = angular.module('app', [
   'ngRoute',
   'app.home',
@@ -6,5 +9,7 @@ var app = angular.module('app', [
 app.config(['$routeProvider', function($routeProvider){
   $routeProvider.otherwise({
     redirectTo: '/'
-  })
+  });
 }]);
+
+}());
