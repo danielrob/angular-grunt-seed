@@ -1,5 +1,5 @@
 // Grunfile which does:
- // Linting 
+ // Linting
   // SASS Compilation
   // HTTP Server with livereload
   // Karma (Cross browser testing)
@@ -10,25 +10,25 @@
 module.exports = function(grunt) {
   "use strict";
   grunt.initConfig({
-    // Watch: Kick off build workflow whenever project files change. 
+    // Watch: Kick off build workflow whenever project files change.
     watch: {
-      options: { 
+      options: {
         // Create a livereload server. See: http://livereload.com/extensions/
-        livereload: true 
+        livereload: true
       },
-      // The more specific, the more performant. 
+      // The more specific, the more performant.
       files: ['app/**/*.html', 'app/**/*.js', 'app/**/*.css', 'Gruntfile.js', '!app/bower_components/**'],
       // Watch Sass compilation.
       css: {
         files: ['app/**/*.scss', '!app/bower_components/**'],
         tasks: ['newer:sass'], // Only compile updated files each time.
-        // tasks: ['sass'], // Alt option: Compile all files each time. 
+        // tasks: ['sass'], // Alt option: Compile all files each time.
         options: {
           // Significantly faster, docs say possibly less stable.
           spawn: false
         }
       },
-      // Watch Jshint. 
+      // Watch Jshint.
       js: {
         files: ['Gruntfile.js', 'app/**/*.js', '!app/bower_components/**'],
         tasks: ['jshint'], // Lint all files each time.
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         options: {
           // Significantly faster, docs say possibly less stable.
           spawn: false
-        } 
+        }
       },
       //Watch karma: run unit tests with karma (server needs to be already running)
       karma: {
@@ -48,8 +48,8 @@ module.exports = function(grunt) {
         }
       },
     },
-    // Jshint: default linting of javascripts. 
-    jshint: {  
+    // Jshint: default linting of javascripts.
+    jshint: {
       files: {
         src: ['Gruntfile.js', 'app/**/*.js', '!app/bower_components/**']
       },
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
             src: 'app/**/*.scss',
             ext: '.css'
         }]
-      }   
+      }
     },
     // Karma
     karma: {
@@ -77,8 +77,8 @@ module.exports = function(grunt) {
         singleRun: false
       }
     },
-    // Connect: Http server on port 8000. 
-    connect: { 
+    // Connect: Http server on port 8000.
+    connect: {
       server: {
         options : {
           base: 'app'
@@ -86,7 +86,7 @@ module.exports = function(grunt) {
       }
     },
   });
- 
+
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -125,6 +125,7 @@ module.exports = function(grunt) {
       globals: {
         "angular" : false,
         "module" : false,
+        "inject" : false,
       }
     };
   }
